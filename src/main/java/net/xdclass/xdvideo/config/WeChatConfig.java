@@ -19,7 +19,7 @@ public class WeChatConfig {
     /**
      * 公众号id
      */
-    @Value("${wxpay.appId}")
+    @Value("${wxpay.appid}")
     private String  appdId;
 
     /**
@@ -27,4 +27,32 @@ public class WeChatConfig {
      */
     @Value("${wxpay.appsecret}")
     private String  appsecret;
+
+
+    /**
+     *开放平台appId
+     */
+    @Value("${wxopen.appid}")
+    private String  openAppId;
+
+    /**
+     *开放平台appsecret
+     */
+    @Value("${wxopen.appsecret}")
+    private String  openAppsecret;
+
+    /**
+     *开放平台回调url
+     */
+    @Value("${wxopen.redirect_url}")
+    private String  openRedirectUrl;
+
+
+
+    /**
+     * 微信开放平台二维码链接
+     */
+    public static final String QR_CODE_URL="https://open.weixin.qq.com/connect/qrconnect?appid=%s&redirect_uri=%s&response_type=code&scope=snsapi_login&state=%s#wechat_redirect";
+
+
 }
