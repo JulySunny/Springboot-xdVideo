@@ -31,10 +31,13 @@ public class HttpUtils {
         Map<String, Object> map = new HashMap<>();
         CloseableHttpClient httpClient = HttpClients.createDefault();
         RequestConfig requestConfig = RequestConfig.custom()
-                .setConnectTimeout(5000) //连接超时
-                .setConnectionRequestTimeout(5000) //请求超时
+                //连接超时
+                .setConnectTimeout(5000)
+                //请求超时
+                .setConnectionRequestTimeout(5000)
                 .setSocketTimeout(5000)
-                .setRedirectsEnabled(true) //允许自动重定向
+                //允许自动重定向
+                .setRedirectsEnabled(true)
                 .build();
         HttpGet httpGet = new HttpGet(url);
         httpGet.setConfig(requestConfig);
