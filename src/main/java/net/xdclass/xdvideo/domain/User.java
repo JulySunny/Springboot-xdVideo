@@ -1,11 +1,15 @@
 package net.xdclass.xdvideo.domain;
 
 
+import lombok.Data;
+
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  * 用户表
  */
+@Data
 public class User implements Serializable{
 
   private static final long serialVersionUID = 2382940123483532258L;
@@ -17,87 +21,6 @@ public class User implements Serializable{
   private String sign;
   private Integer sex;
   private String city;
-  private java.sql.Date createTime;
-
-
-  public Integer getId() {
-    return id;
-  }
-
-  public void setId(Integer id) {
-    this.id = id;
-  }
-
-
-  public String getOpenid() {
-    return openid;
-  }
-
-  public void setOpenid(String openid) {
-    this.openid = openid;
-  }
-
-
-  public String getName() {
-    return name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-
-  public String getHeadImg() {
-    return headImg;
-  }
-
-  public void setHeadImg(String headImg) {
-    this.headImg = headImg;
-  }
-
-
-  public String getPhone() {
-    return phone;
-  }
-
-  public void setPhone(String phone) {
-    this.phone = phone;
-  }
-
-
-  public String getSign() {
-    return sign;
-  }
-
-  public void setSign(String sign) {
-    this.sign = sign;
-  }
-
-
-  public Integer getSex() {
-    return sex;
-  }
-
-  public void setSex(Integer sex) {
-    this.sex = sex;
-  }
-
-
-  public String getCity() {
-    return city;
-  }
-
-  public void setCity(String city) {
-    this.city = city;
-  }
-
-
-  public java.sql.Date getCreateTime() {
-    return createTime;
-  }
-
-  public void setCreateTime(java.sql.Date createTime) {
-    this.createTime = createTime;
-  }
+  private Date createTime;
 
 }

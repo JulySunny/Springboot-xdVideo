@@ -2,6 +2,8 @@ package net.xdclass.xdvideo.utils;
 
 import io.jsonwebtoken.*;
 import net.xdclass.xdvideo.domain.User;
+import org.apache.http.util.Asserts;
+import org.springframework.util.Assert;
 
 import java.util.Date;
 
@@ -31,7 +33,7 @@ public class JwtUtils {
 
     /**
      * 生成Jwt
-     * @param user
+     * @param user 用户对象
      * @return
      */
     public static String genJsonWebToken(User user) {
@@ -65,5 +67,16 @@ public class JwtUtils {
             e.printStackTrace();
             return null;
         }
+    }
+
+    public static void main(String[] args) {
+        User user =new User();
+        user.setId(666);
+        user.setName("测试用户");
+        user.setHeadImg("图片地址");
+        String jwt = JwtUtils.genJsonWebToken(user);
+        System.out.println(jwt);
+        Claims claims = JwtUtils.checkJWT(jwt);
+        Assert.notNull(claims, "校验非空");
     }
 }
