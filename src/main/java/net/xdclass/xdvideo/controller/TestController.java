@@ -20,7 +20,7 @@ public class TestController {
 
 	@RequestMapping("test_config")
 	public String test_config(){
-		System.out.println(weChatConfig.getAppdId());
+		System.out.println(weChatConfig.getAppId());
 		System.out.println(weChatConfig.getAppsecret());
 		return "hello xdclass.net111";
 	}

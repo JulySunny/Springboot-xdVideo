@@ -20,7 +20,7 @@ public class WeChatConfig {
      * 公众号id
      */
     @Value("${wxpay.appid}")
-    private String  appdId;
+    private String  appId;
 
     /**
      * 公众号密钥
@@ -68,4 +68,26 @@ public class WeChatConfig {
     public final static String OPEN_USER_INFO_URL ="https://api.weixin.qq.com/sns/userinfo?access_token=%s&openid=%s&lang=zh_CN";
 
 
+    /**
+     * 商户号id
+     */
+    @Value("${wxpay.mer_id}")
+    private String mchId;
+
+    /**
+     * 支付key
+     */
+    @Value("${wxpay.key}")
+    private String key;
+
+    /**
+     * 微信支付回调的url
+     */
+    @Value("${wxpay.callback}")
+    private String payCallbackUrl;
+
+    /**
+     * 微信统一下单接口url
+     */
+    public static final String UNIFIED_ORDER_URL = "http://api.xdclass.net/pay/unifiedorder";
 }
