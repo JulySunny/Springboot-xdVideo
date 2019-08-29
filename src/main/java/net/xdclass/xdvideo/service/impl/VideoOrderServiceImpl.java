@@ -52,7 +52,7 @@ public class VideoOrderServiceImpl implements VideoOrderService {
         //生成订单
         VideoOrder videoOrder = new VideoOrder();
 //        videoOrder.setTotalFee(video.getPrice()); //价格
-        videoOrder.setTotalFee(1); //价格--分为单位 写死
+        videoOrder.setTotalFee(10); //价格--分为单位 写死
 
         videoOrder.setVideoImg(video.getCoverImg());
         videoOrder.setVideoTitle(video.getTitle());
@@ -74,6 +74,16 @@ public class VideoOrderServiceImpl implements VideoOrderService {
 
 
         return code_url;
+    }
+
+    @Override
+    public int updateVideoOrderByOutTradeNo(VideoOrder videOrder) {
+        return videoOrderMapper.updateVideoOrderByOutTradeNo(videOrder);
+    }
+
+    @Override
+    public VideoOrder findByOutTradeNo(String outTradeNo) {
+        return videoOrderMapper.findByOutTradeNo(outTradeNo);
     }
 
     private String unifiedOrder(VideoOrder videoOrder) throws Exception {
@@ -98,7 +108,7 @@ public class VideoOrderServiceImpl implements VideoOrderService {
         System.out.println(payXml);
 
         //统一下单
-        String orderStr = HttpUtils.doPost(WeChatConfig.UNIFIED_ORDER_URL, payXml, 4);
+        String orderStr = HttpUtils.doPost(WeChatConfig.UNIFIED_ORDER_URL, payXml, 40000);
         if (StringUtils.isEmpty(orderStr)){
             return null;
         }

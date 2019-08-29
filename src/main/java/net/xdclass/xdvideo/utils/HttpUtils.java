@@ -32,10 +32,10 @@ public class HttpUtils {
         CloseableHttpClient httpClient = HttpClients.createDefault();
         RequestConfig requestConfig = RequestConfig.custom()
                 //连接超时
-                .setConnectTimeout(5000)
+                .setConnectTimeout(50000)
                 //请求超时
-                .setConnectionRequestTimeout(5000)
-                .setSocketTimeout(5000)
+                .setConnectionRequestTimeout(50000)
+                .setSocketTimeout(50000)
                 //允许自动重定向
                 .setRedirectsEnabled(true)
                 .build();

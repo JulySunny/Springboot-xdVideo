@@ -2,6 +2,7 @@ package net.xdclass.xdvideo.service;
 
 import net.xdclass.xdvideo.domain.VideoOrder;
 import net.xdclass.xdvideo.dto.VideoOrderDto;
+import org.apache.ibatis.annotations.Param;
 
 /**
  * @Author: 杨强
@@ -16,6 +17,20 @@ public interface VideoOrderService {
      * @return
      */
     String save(VideoOrderDto videoOrderDto) throws Exception;
+
+    /**
+     * 根据流水号更新订单
+     * @param videOrder
+     * @return
+     */
+    int updateVideoOrderByOutTradeNo(VideoOrder videOrder);
+
+    /**
+     * 根据流水号更新订单
+     * @param outTradeNo
+     * @return
+     */
+    VideoOrder findByOutTradeNo(String outTradeNo);
 
 
 }
